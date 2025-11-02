@@ -1,0 +1,16 @@
+Package: ordenaR
+Type: Package
+Title: Ordening ang visualizing species composition under a gradient
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Edson Nilton de Moura Silva-Júnior",
+      email = "edsonbbbiologia@gmail.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: functions to ordening species order in function to a gradient, such as environmental or sample unit ggradients, to best visualization how gradients affects species abundance.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
