@@ -20,6 +20,8 @@
 #'
 #' library(ordenaR)
 #'
+#' library(purrr)
+#'
 #' # Importing data
 #'
 #' data("data_ordenar", package = "ordenaR")
@@ -30,15 +32,34 @@
 #'
 #' # Calculing to a direct gradient
 #'
-#' order_species(data = data_ordenar,
-#'               gradient = "grandient_1",
-#'               species = 4:8)
+#' ordenaR::order_species(data = data_ordenar,
+#'                        gradient = "grandient_1",
+#'                        species = 4:8)
 #'
 #' # Calculating to a indirect gradient
 #'
-#' order_species(data = data_ordenar,
-#'               species = 4:8,
-#'               direct = FALSE)
+#' ordenaR::order_species(data = data_ordenar,
+#'                        species = 4:8,
+#'                        direct = FALSE)
+#'
+#' # Loop for multiple gradients
+#'
+#' mult_gra <- function(gradient){
+#'
+#'   paste0("load to gradient: ", gradient) |>
+#'     message()
+#'
+#'    grad <- ordenaR::order_species(data = data_ordenar,
+#'                                   gradient = gradient,
+#'                                   species = 4:8)
+#'
+#'    retunr(grad)
+#'
+#' }
+#'
+#' gradient <- paste0("gradient_", 1:2)
+#'
+#' purrr::map(gradient, mult_gra)
 #'
 
 #' @export

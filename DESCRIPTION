@@ -20,6 +20,7 @@ Imports:
     dplyr,
     forcats,
     ggplot2,
+    purrr,
     readr,
     stringr,
     tibble,

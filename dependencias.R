@@ -6,7 +6,7 @@ library(usethis)
 
 # Pacotes ----
 
-pacotes <- c("dplyr", "stringr", "readr", "ggplot2", "tibble", "forcats")
+pacotes <- c("dplyr", "stringr", "readr", "ggplot2", "tibble", "forcats", "purrr")
 
 pacotes
 
