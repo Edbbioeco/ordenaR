@@ -60,7 +60,7 @@ mult_gra <- function(gradient){
                                   gradient = gradient,
                                   species = 4:8)
 
-   retunr(grad)
+   return(grad)
 
 }
 
