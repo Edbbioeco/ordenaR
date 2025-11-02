@@ -2,14 +2,49 @@
 % Please edit documentation in R/order_species.R
 \name{order_species}
 \alias{order_species}
-\title{Ordening species by gradient}
+\title{Ordening species by gradient and ranking them into a dataframe}
 \usage{
-order_species(a, b)
+order_species(data, gradient = NULL, species, direct = TRUE)
+}
+\arguments{
+\item{data}{Dataframe with gradient and species abundance columns.}
+
+\item{gradient}{Dataframe column with gradient data. May be column name as string ("gradient") or column dataframe id position number. If gradient is not NULL, direct argument is TRUE. only one gradient per time.}
+
+\item{species}{Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.}
+
+\item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE}
 }
 \description{
-Ordening species by gradient
+Based oh Hill (1973) reciprocal average, used to find best species ordenation to understand and visualize species abundace-composition under a gradient (see details). Can be used to direct gradient (numeric gradient, such as temperature, humidity, altitude, and other numeric variables) and indirect gradients (categorical gradientes, such as sample units, vegetation types, and other categorical variables).
+}
+\details{
+\href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249}.
 }
 \examples{
-order_species(1, 2)
+
+# Load package
+
+library(ordenaR)
+
+# Importing data
+
+data("data_ordenar", package = "ordenaR")
+
+# Visualizing data
+
+data_ordenar
+
+# Calculing to a direct gradient
+
+order_species(data = data_ordenar,
+              gradient = "grandient_1",
+              species = 4:8)
+
+# Calculating to a indirect gradient
+
+order_species(data = data_ordenar,
+              species = 4:8,
+              direct = FALSE)
 
 }
