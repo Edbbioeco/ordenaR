@@ -16,7 +16,7 @@
 
 #' @examples
 #'
-#' # Load package
+#' # Load packages
 #'
 #' library(ordenaR)
 #'

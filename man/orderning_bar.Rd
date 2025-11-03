@@ -31,7 +31,7 @@ Those barplots are frequently used by ecological reseaches (Magnusson & Bacchari
 }
 \examples{
 
-# Load package
+# Load packages
 
 library(ordenaR)
 

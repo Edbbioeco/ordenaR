@@ -22,8 +22,7 @@ Based oh Hill (1973) reciprocal average, used to find best species ordenation to
 \href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249}.
 }
 \examples{
-
-# Load package
+# Load packages
 
 library(ordenaR)
 
