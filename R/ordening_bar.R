@@ -1,9 +1,81 @@
-#' Build ordening plots by bars
+#' @title Build ordening plots by barplots
+#'
+#' @description Those plots are based oh Hill (1973) reciprocal average, used to find best species ordenation to understand and visualize species abundace-composition under a gradient (see details). Can be used to direct gradient (numeric gradient, such as temperature, humidity, altitude, and other numeric variables) and indirect gradients (categorical gradientes, such as sample units, vegetation types, and other categorical variables).
+#'
+#' Those barplots are frequently used by ecological reseaches (Magnusson & Bacchario, 2021) to understand and visualize (see details). Those barplots are mainly used to visualize:
+#'
+#' - How different species are ordened along a gradient;
+#'
+#' - How species abundance are ordened along a gradient.
+#'
+#' @details
+#'
+#' - \href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249};
+#'
+#' - \href{https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses}{Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2}.
+#'
+#' @param data Dataframe with gradient and species abundance columns.
+#'
+#' @param gradient Dataframe column with gradient data. May be column name as string ("gradient") or column dataframe id position number. If gradient is not NULL, direct argument is TRUE. only one gradient per time.
+#'
+#' @param species Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.
+#'
+#' @param direct If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE
+
+#' @examples
+#'
+#' # Load package
+#'
+#' library(ordenaR)
+#'
+#' library(purrr)
+#'
+#' # Importing data
+#'
+#' data("data_ordenar", package = "ordenaR")
+#'
+#' # Visualizing data
+#'
+#' data_ordenar
+#'
+#' # Calculing to a direct gradient
+#'
+#' ordenaR::order_species(data = data_ordenar,
+#'                        gradient = "grandient_1",
+#'                        species = 4:8)
+#'
+#' # Calculating to a indirect gradient
+#'
+#' ordenaR::order_species(data = data_ordenar,
+#'                        species = 4:8,
+#'                        direct = FALSE)
+#'
+#' # Loop for multiple gradients
+#'
+#' mult_gra <- function(gradient){
+#'
+#'   paste0("load to gradient: ", gradient) |>
+#'     message()
+#'
+#'    grad <- ordenaR::order_species(data = data_ordenar,
+#'                                   gradient = gradient,
+#'                                   species = 4:8)
+#'
+#'    return(grad)
+#'
+#' }
+#'
+#' gradient <- paste0("gradient_", 1:2)
+#'
+#' purrr::map(gradient, mult_gra)
+#'
 
 #' @export
 
-orderning_bar <- function() {
+orderning_bar <- function(data, gradient = NULL, species, direct = TRUE) {
 
-  print(x)
+  if(!is.null(gradient) & direct == TRUE){
+
+  }
 
 }
