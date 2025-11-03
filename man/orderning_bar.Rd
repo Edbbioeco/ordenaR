@@ -4,16 +4,16 @@
 \alias{orderning_bar}
 \title{Build ordening plots by barplots}
 \usage{
-orderning_bar(data, gradient = NULL, species, direct = TRUE)
+orderning_bar(data, gradient, species, direct = TRUE)
 }
 \arguments{
 \item{data}{Dataframe with gradient and species abundance columns.}
 
-\item{gradient}{Dataframe column with gradient data. May be column name as string ("gradient") or column dataframe id position number. If gradient is not NULL, direct argument is TRUE. only one gradient per time.}
+\item{gradient}{Dataframe column with gradient data. May be column name as string ("gradient") or column dataframe id position number. only one gradient per time.}
 
 \item{species}{Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.}
 
-\item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE}
+\item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. default is TRUE.}
 }
 \description{
 Those plots are based oh Hill (1973) reciprocal average, used to find best species ordenation to understand and visualize species abundace-composition under a gradient (see details). Can be used to direct gradient (numeric gradient, such as temperature, humidity, altitude, and other numeric variables) and indirect gradients (categorical gradientes, such as sample units, vegetation types, and other categorical variables).
@@ -45,15 +45,16 @@ data("data_ordenar", package = "ordenaR")
 
 data_ordenar
 
-# Calculing to a direct gradient
+# Ploting to a direct gradient
 
-ordenaR::order_species(data = data_ordenar,
+ordenaR::orderning_bar(data = data_ordenar,
                        gradient = "grandient_1",
                        species = 4:8)
 
 # Calculating to a indirect gradient
 
-ordenaR::order_species(data = data_ordenar,
+ordenaR::orderning_bar(data = data_ordenar,
+                       gradient = "sample_unit",
                        species = 4:8,
                        direct = FALSE)
 
@@ -61,10 +62,10 @@ ordenaR::order_species(data = data_ordenar,
 
 mult_gra <- function(gradient){
 
-  paste0("load to gradient: ", gradient) |>
+  paste0("Plot to gradient: ", gradient) |>
     message()
 
-   grad <- ordenaR::order_species(data = data_ordenar,
+   grad <- ordenaR::orderning_bar(data = data_ordenar,
                                   gradient = gradient,
                                   species = 4:8)
 

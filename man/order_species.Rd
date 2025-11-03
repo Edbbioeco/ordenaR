@@ -13,7 +13,7 @@ order_species(data, gradient = NULL, species, direct = TRUE)
 
 \item{species}{Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.}
 
-\item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE}
+\item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE,}
 }
 \description{
 Based oh Hill (1973) reciprocal average, used to find best species ordenation to understand and visualize species abundace-composition under a gradient (see details). Can be used to direct gradient (numeric gradient, such as temperature, humidity, altitude, and other numeric variables) and indirect gradients (categorical gradientes, such as sample units, vegetation types, and other categorical variables).

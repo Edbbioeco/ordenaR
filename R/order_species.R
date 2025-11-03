@@ -12,7 +12,7 @@
 #'
 #' @param species Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.
 #'
-#' @param direct If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE
+#' @param direct If FALSE, function assumes gradient are an indirect gradient, with categorical data type. If direct = FALSE, do not needs to declare gradient argument. default is TRUE,
 
 #' @examples
 #'
