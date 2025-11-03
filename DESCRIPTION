@@ -24,5 +24,4 @@ Imports:
     readr,
     stringr,
     tibble,
-    magrittr,
     tidyverse
