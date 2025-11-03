@@ -15,7 +15,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
 Depends: 
-    R (>= 3.5)
+    R (>= 4.1)
 Imports:
     dplyr,
     forcats,
@@ -24,4 +24,5 @@ Imports:
     readr,
     stringr,
     tibble,
+    magrittr,
     tidyverse

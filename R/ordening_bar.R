@@ -76,6 +76,48 @@ orderning_bar <- function(data, gradient = NULL, species, direct = TRUE) {
 
   if(!is.null(gradient) & direct == TRUE){
 
-  }
+    ordem_especies <- data |>
+      tidyr::pivot_longer(cols = species,
+                          names_to = "specie",
+                          values_to = "abundance") |>
+      dplyr::summarise(`Reciprocal average` = sum(data[[gradient]] * abundance) / sum(abundance),
+                       .by = specie) |>
+      dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::pull(specie) |>
+      unique()
+
+    ggplt <- data |>
+      tidyr::pivot_longer(cols = species,
+                          names_to = "specie",
+                          values_to = "abundance") |>
+      dplyr::mutate(specie = specie |>
+                      forcats::fct_relevel(ordem_especies),
+                    Gradient = data[[gradient]]) |>
+      ggplot2::ggplot(ggplot2::aes(Gradient, abundance)) +
+      ggplot2::geom_col(color = "black", fill = "black") +
+      ggplot2::facet_grid(species ~.) +
+      ggplot2::theme_classic() +
+      ggplot2::theme(axis.text.y = ggplot2::element_blank(),
+                     axis.text.x = ggplot2::element_text(color = "black",
+                                                         size = 15,
+                                                         hjust = 0),
+                     axis.title = ggplot2::element_text(color = "black",
+                                                        size = 15),
+                     panel.spacing = ggplot2::unit(0, "points"),
+                     axis.ticks.y = ggplot2::element_blank(),
+                     axis.line.x = ggplot2::element_blank(),
+                     strip.background = ggplot2::element_blank(),
+                     strip.text.y.right = ggplot2::element_text(angle = 0,
+                                                                size = 12,
+                                                                color = "black",
+                                                                hjust = 0,
+                                                                face = "italic"),
+                     legend.position = "bottom",
+                     legend.text = ggplot2::element_text(color = "black",
+                                                         size = 12),
+                     legend.title = ggplot2::element_text(color = "black",
+                                                          size = 15))
+
+      }
 
 }

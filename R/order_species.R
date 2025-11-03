@@ -72,7 +72,7 @@ order_species <- function(data, gradient = NULL, species, direct = TRUE){
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
-      dplyr::summarise(`Reciprocal average` = sum(data_ordenar[[gradient]] * abundance) / sum(abundance),
+      dplyr::summarise(`Reciprocal average` = sum(data[[gradient]] * abundance) / sum(abundance),
                        .by = specie) |>
       dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(Rank = 1:length(species))
