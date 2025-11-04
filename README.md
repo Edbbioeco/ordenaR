@@ -105,11 +105,11 @@ To our analysis, we use dataframe/tibble class objetos, containg:
 
 To best ordering species under a gradient, we relocate them in a plot,
 to better understand how gradients affets species abundance. This is
-based on Hill [1973](https://www.jstor.org/stable/2258931), calculating
-reciprocal average, where every species get a rank, and we relocate the
-species based on this rank. For indirect gradients, we assumes a
-theorical gradient (i.e. 1, 2. 3, 4,…, n<sub>bservation</sub>) and
-calcule them.
+based on Hill ([1973](https://www.jstor.org/stable/2258931)),
+calculating reciprocal average, where every species get a rank, and we
+relocate the species based on this rank. For indirect gradients, we
+assumes a theorical gradient (i.e. 1, 2. 3, 4,…, n<sub>bservation</sub>)
+and calcule them.
 
 ``` math
 
