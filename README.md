@@ -25,7 +25,7 @@ and how gradients affect communities composition structure ([Hill,
 1973](https://www.jstor.org/stable/2258931)). {ordenaR} package can
 analyse species abundance under direct and indirect gradients
 ([Magnusson & Bacchario,
-2012](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)):
+2021](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)):
 
 - Direct gradients: numeric values gradients, such as temperature,
   humidity, altitude, and such else numeric variables;
