@@ -9,9 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)}
-
-<img src="ordenaR.png" width="250">
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
 
 # Download and load package
 
@@ -73,7 +71,34 @@ To our analysis, we use dataframe/tibble class objetos, containg:
 
 - A set of Columns containing species abundance data. Pay attention such species abundance data are conttained by a single column.
 
-Now, lets do analyse our data.
+# Get species rank
+
+To best ordering species under a gradient, we relocate them in a plot, to better understand how gradients affets species abundance. This is based on Hill [1973](https://www.jstor.org/stable/2258931), calculating reciprocal average, where every species get a rank, and we relocate the species based on this rank. For indirect gradients, we assumes a theorical gradient (i.e. 1, 2. 3, 4,..., n~bservation~) and calcule them.
+
+$$
+K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_1 \right)}{\sum_{i = 1} P_i}
+$$
+
+- $P_i$ = abundancie for species $P$ to row $i$;
+
+- $E_i$ = value to gradient $E$ to row $i$.
+
+Now, lets to analyse our data to a direct gradient.
+
+```{r}
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_1",
+                       species = 4:8)
+```
+
+And now to a indirect gradient.
+
+```{r}
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "sample_unit",
+                       species = 4:8,
+                       direct = FALSE)
+```
 
 # References
 

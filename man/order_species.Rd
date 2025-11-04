@@ -4,7 +4,7 @@
 \alias{order_species}
 \title{Ordering species by gradient and ranking them into a dataframe}
 \usage{
-order_species(data, gradient = NULL, species, direct = TRUE)
+order_species(data, gradient, species, direct = TRUE)
 }
 \arguments{
 \item{data}{Dataframe with gradient and species abundance columns.}

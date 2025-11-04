@@ -74,9 +74,9 @@
 
 #' @export
 
-order_species <- function(data, gradient = NULL, species, direct = TRUE){
+order_species <- function(data, gradient, species, direct = TRUE){
 
-  if(!is.null(gradient) & direct == TRUE){
+  if(direct == TRUE){
 
     ordem_especies <- data |>
       tidyr::pivot_longer(cols = species,
@@ -87,7 +87,7 @@ order_species <- function(data, gradient = NULL, species, direct = TRUE){
       dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(Rank = 1:length(species))
 
-  } else if(is.null(gradient) & direct == FALSE){
+  } else if(direct == FALSE){
 
     ordem_especies <- data |>
       dplyr::mutate(gradient = 1:nrow(data)) |>

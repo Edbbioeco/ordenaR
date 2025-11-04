@@ -101,7 +101,59 @@ To our analysis, we use dataframe/tibble class objetos, containg:
 - A set of Columns containing species abundance data. Pay attention such
   species abundance data are conttained by a single column.
 
-Now, lets do analyse our data.
+# Get species rank
+
+To best ordering species under a gradient, we relocate them in a plot,
+to better understand how gradients affets species abundance. This is
+based on Hill [1973](https://www.jstor.org/stable/2258931), calculating
+reciprocal average, where every species get a rank, and we relocate the
+species based on this rank. For indirect gradients, we assumes a
+theorical gradient (i.e. 1, 2. 3, 4,…, n<sub>bservation</sub>) and
+calcule them.
+
+``` math
+
+K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_1 \right)}{\sum_{i = 1} P_i}
+```
+
+- $`P_i`$ = abundancie for species $`P`$ to row $`i`$;
+
+- $`E_i`$ = value to gradient $`E`$ to row $`i`$.
+
+Now, lets to analyse our data to a direct gradient.
+
+``` r
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_1",
+                       species = 4:8)
+```
+
+    ## # A tibble: 5 × 3
+    ##   specie    `Reciprocal average`  Rank
+    ##   <chr>                    <dbl> <int>
+    ## 1 species_1                10.7      1
+    ## 2 species_2                 8.56     2
+    ## 3 species_5                 6.38     3
+    ## 4 species_4                 4.06     4
+    ## 5 species_3                 1.68     5
+
+And now to a indirect gradient.
+
+``` r
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "sample_unit",
+                       species = 4:8,
+                       direct = FALSE)
+```
+
+    ## # A tibble: 5 × 3
+    ##   specie    `Reciprocal average`  Rank
+    ##   <chr>                    <dbl> <int>
+    ## 1 species_1                22.9      1
+    ## 2 species_2                18.2      2
+    ## 3 species_5                13.4      3
+    ## 4 species_4                 8.25     4
+    ## 5 species_3                 3        5
 
 # References
 
@@ -113,4 +165,3 @@ Now, lets do analyse our data.
   ecological data with multivariate analyses. EDUA: Editora da
   Universidade Federal do Amazonas. Cap
   2](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)
-
