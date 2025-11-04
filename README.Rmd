@@ -89,6 +89,10 @@ Now, lets to analyse our data to a direct gradient.
 ordenaR::order_species(data = data_ordenar,
                        gradient = "gradient_1",
                        species = 4:8)
+
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_2",
+                       species = 4:8)
 ```
 
 And now to a indirect gradient.

@@ -137,6 +137,21 @@ ordenaR::order_species(data = data_ordenar,
     ## 4 species_4                 4.06     4
     ## 5 species_3                 1.68     5
 
+``` r
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_2",
+                       species = 4:8)
+```
+
+    ## # A tibble: 5 × 3
+    ##   specie    `Reciprocal average`  Rank
+    ##   <chr>                    <dbl> <int>
+    ## 1 species_1                8.89      1
+    ## 2 species_3                7.00      2
+    ## 3 species_2                4.01      3
+    ## 4 species_5                2.90      4
+    ## 5 species_4                0.951     5
+
 And now to a indirect gradient.
 
 ``` r

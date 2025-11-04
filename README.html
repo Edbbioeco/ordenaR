@@ -522,6 +522,17 @@ K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_1 \right)}{\sum_{i = 1} P_i}
 ## 3 species_5                 6.38     3
 ## 4 species_4                 4.06     4
 ## 5 species_3                 1.68     5</code></pre>
+<pre class="r"><code>ordenaR::order_species(data = data_ordenar,
+                       gradient = &quot;gradient_2&quot;,
+                       species = 4:8)</code></pre>
+<pre><code>## # A tibble: 5 × 3
+##   specie    `Reciprocal average`  Rank
+##   &lt;chr&gt;                    &lt;dbl&gt; &lt;int&gt;
+## 1 species_1                8.89      1
+## 2 species_3                7.00      2
+## 3 species_2                4.01      3
+## 4 species_5                2.90      4
+## 5 species_4                0.951     5</code></pre>
 <p>And now to a indirect gradient.</p>
 <pre class="r"><code>ordenaR::order_species(data = data_ordenar,
                        gradient = &quot;sample_unit&quot;,
