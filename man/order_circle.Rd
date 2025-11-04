@@ -2,7 +2,7 @@
 % Please edit documentation in R/order_circle.R
 \name{order_circle}
 \alias{order_circle}
-\title{Build ordening plots by circle}
+\title{Build ordering plots by circle}
 \usage{
 order_circle(data, gradient, species, direct = TRUE, range = 10)
 }

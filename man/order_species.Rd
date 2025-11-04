@@ -2,7 +2,7 @@
 % Please edit documentation in R/order_species.R
 \name{order_species}
 \alias{order_species}
-\title{Ordening species by gradient and ranking them into a dataframe}
+\title{Ordering species by gradient and ranking them into a dataframe}
 \usage{
 order_species(data, gradient = NULL, species, direct = TRUE)
 }

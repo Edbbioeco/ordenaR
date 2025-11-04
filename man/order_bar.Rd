@@ -2,7 +2,7 @@
 % Please edit documentation in R/order_bar.R
 \name{order_bar}
 \alias{order_bar}
-\title{Build ordening plots by barplots}
+\title{Build ordering plots by barplots}
 \usage{
 order_bar(data, gradient, species, direct = TRUE, width = NULL)
 }
