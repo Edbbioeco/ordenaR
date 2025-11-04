@@ -6,11 +6,13 @@ Authors@R: c(
     person(
       "Edson Nilton de Moura Silva-Júnior",
       email = "edsonbbbiologia@gmail.com",
-      role = c("aut", "cre")
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0009-0003-9116-2020",
+                  GitHub = "Edbbioeco")
     )
   )
 Description: functions to ordening species order in function to a gradient, such as environmental or sample unit ggradients, to best visualization how gradients affects species abundance.
-License: What license is it under?
+License: MIT + GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3

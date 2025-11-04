@@ -9,7 +9,7 @@
 functions to ordening species order in function to a gradient, such as environmental or sample unit ggradients, to best visualization how gradients affects species abundance.
 }
 \author{
-\strong{Maintainer}: Edson Nilton de Moura Silva-Júnior \email{edsonbbbiologia@gmail.com}
+\strong{Maintainer}: Edson Nilton de Moura Silva-Júnior \email{edsonbbbiologia@gmail.com} (\href{https://orcid.org/0009-0003-9116-2020}{ORCID}) (Edbbioeco)
 
 }
 \keyword{internal}
