@@ -4,7 +4,7 @@
 \alias{order_circle}
 \title{Build ordening plots by circle}
 \usage{
-order_circle(data, gradient, species, direct = TRUE)
+order_circle(data, gradient, species, direct = TRUE, range = 10)
 }
 \arguments{
 \item{data}{Dataframe with gradient and species abundance columns.}
@@ -14,6 +14,8 @@ order_circle(data, gradient, species, direct = TRUE)
 \item{species}{Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.}
 
 \item{direct}{If FALSE, function assumes gradient are an indirect gradient, with categorical data type. default is TRUE.}
+
+\item{range}{Circle size difference range, rangingo from 1 to range value. Default is 10.}
 }
 \description{
 Those plots are based oh Hill (1973) reciprocal average, used to find best species ordenation to understand and visualize species abundace-composition under a gradient (see details). But else from ordenaR::order_bar(), plots are made by circles not bars. Can be used to direct gradient (numeric gradient, such as temperature, humidity, altitude, and other numeric variables) and indirect gradients (categorical gradientes, such as sample units, vegetation types, and other categorical variables).
@@ -25,9 +27,13 @@ Those barplots are frequently used by ecological reseaches (Magnusson & Bacchari
 - How species abundance are ordened along a gradient.
 }
 \details{
-- \href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249};
+Data input must to be a dataframe or tibble class object. Keep attention to secure data are not matrix or list class objects. Data input must contaign:
 
-- \href{https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses}{Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2}.
+- A column contain direct gradient (numeric values) or indirect gradient (categorical values). Pay attention whether your indirect gradient are contained on row names (i.e. sample units). If it is true, turn it into a columns, such using tibble::rownames_to_column() function, previously;
+
+- A set of Columns containing species abundance data. Pay attention such species abundance data are conttained by a single column.
+
+To Visualize data input structure, run ordenaR::data_ordenar.
 }
 \examples{
 
@@ -77,4 +83,9 @@ gradient <- paste0("gradient_", 1:2)
 
 purrr::map(gradient, mult_gra)
 
+}
+\references{
+\href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249};
+
+- \href{https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses}{Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2}.
 }

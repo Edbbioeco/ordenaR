@@ -8,12 +8,6 @@
 #'
 #' - How species abundance are ordened along a gradient.
 #'
-#' @details
-#'
-#' - \href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249};
-#'
-#' - \href{https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses}{Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2}.
-#'
 #' @param data Dataframe with gradient and species abundance columns.
 #'
 #' @param gradient Dataframe column with gradient data. May be column name as string ("gradient") or column dataframe id position number. only one gradient per time.
@@ -21,6 +15,24 @@
 #' @param species Dataframe columns with species abundace data. May be columns name as string (c("species_1", "species_2)) or columns dataframe id position number.
 #'
 #' @param direct If FALSE, function assumes gradient are an indirect gradient, with categorical data type. default is TRUE.
+#'
+#' @param range Circle size difference range, rangingo from 1 to range value. Default is 10.
+#'
+#' @details
+#'
+#' Data input must to be a dataframe or tibble class object. Keep attention to secure data are not matrix or list class objects. Data input must contaign:
+#'
+#' - A column contain direct gradient (numeric values) or indirect gradient (categorical values). Pay attention whether your indirect gradient are contained on row names (i.e. sample units). If it is true, turn it into a columns, such using tibble::rownames_to_column() function, previously;
+#'
+#' - A set of Columns containing species abundance data. Pay attention such species abundance data are conttained by a single column.
+#'
+#' To Visualize data input structure, run ordenaR::data_ordenar.
+#'
+#' @references
+#'
+#' \href{https://www.jstor.org/stable/2258931}{Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249};
+#'
+#' - \href{https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses}{Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2}.
 
 #' @examples
 #'
@@ -70,10 +82,9 @@
 #'
 #' purrr::map(gradient, mult_gra)
 #'
-
 #' @export
 
-order_circle <- function(data, gradient, species, direct = TRUE) {
+order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
 
   if(direct == TRUE){
 
@@ -107,7 +118,7 @@ order_circle <- function(data, gradient, species, direct = TRUE) {
       ggplot2::geom_hline(yintercept = 0,
                           color = "black",
                           linewidth = 2) +
-      ggplot2::scale_size_continuous(range = c(1, 10)) +
+      ggplot2::scale_size_continuous(range = c(1, range)) +
       ggplot2::theme_classic() +
       ggplot2::theme(axis.text.y = ggplot2::element_blank(),
                      axis.text.x = ggplot2::element_text(color = "black",
@@ -187,7 +198,7 @@ order_circle <- function(data, gradient, species, direct = TRUE) {
       ggplot2::geom_hline(yintercept = 0,
                           color = "black",
                           linewidth = 2) +
-      ggplot2::scale_size_continuous(range = c(1, 10)) +
+      ggplot2::scale_size_continuous(range = c(1, range)) +
       ggplot2::theme_classic() +
       ggplot2::theme(axis.text.y = ggplot2::element_blank(),
                      axis.text.x = ggplot2::element_text(color = "black",

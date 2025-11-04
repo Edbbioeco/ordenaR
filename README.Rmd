@@ -13,3 +13,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <img src="ordenaR.png" width="350">
 
+# Download package
+
+```{r}
+library(remotes)
+
+remotes::install_github("Edbbioeco/ordenaR")
+```
+
+or simply:
+
+```{r}
+install.packages("ordenaR")
+```
+
+# Package funcionality
