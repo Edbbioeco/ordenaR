@@ -1,6 +1,4 @@
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)}
-
-<img src="ordenaR.png" width="250">
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
 
 # Download and load package
 
@@ -115,3 +113,4 @@ Now, lets do analyse our data.
   ecological data with multivariate analyses. EDUA: Editora da
   Universidade Federal do Amazonas. Cap
   2](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)
+
