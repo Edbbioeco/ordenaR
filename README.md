@@ -1,4 +1,4 @@
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="inst/ordenaR.png" width="250">
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
 
 # Download and load package
 
@@ -112,20 +112,7 @@ Next, lets get a summary about our data variables.
 
 ``` r
 library(dplyr)
-```
 
-    ## 
-    ## Anexando pacote: 'dplyr'
-
-    ## Os seguintes objetos são mascarados por 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## Os seguintes objetos são mascarados por 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 data_ordenar |> dplyr::glimpse()
 ```
 
@@ -241,7 +228,7 @@ ordenaR::order_bar(data = data_ordenar,
                    species = 4:8)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 Notice the species are not ordered by its numbers, and that position
 configuration maximize species abundance ordering along the gradient.
@@ -254,7 +241,7 @@ ordenaR::order_bar(data = data_ordenar,
                    direct = FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 Notice not only species are ordered, but sample units too. Moreover, we
 can set bar width.
@@ -268,7 +255,7 @@ ordenaR::order_bar(data = data_ordenar,
                    width = 0.1)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 # Set to width = 0.1
@@ -279,7 +266,7 @@ ordenaR::order_bar(data = data_ordenar,
                    width = 0.5)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
 
 ``` r
 # Set to width = 0.5
@@ -290,7 +277,7 @@ ordenaR::order_bar(data = data_ordenar,
                    width = 1)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-20-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-3.png)<!-- -->
 
 ``` r
 # Set to width = 1.5
@@ -301,7 +288,7 @@ ordenaR::order_bar(data = data_ordenar,
                    width = 1.5)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-20-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-9-4.png)<!-- -->
 
 # Ploting by circle plots
 
@@ -316,7 +303,7 @@ ordenaR::order_circle(data = data_ordenar,
                       species = 4:8)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 And now to a indirect gradient.
 
@@ -327,7 +314,7 @@ ordenaR::order_circle(data = data_ordenar,
                       direct = FALSE)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 Similar to bar width, we can set circle diameter differences range.
 
@@ -339,10 +326,10 @@ ordenaR::order_circle(data = data_ordenar,
                       species = 4:8)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
-# Set to width = 5
+# Set to range = 5
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
@@ -350,10 +337,10 @@ ordenaR::order_circle(data = data_ordenar,
                       range = 5)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ``` r
-# Set to width = 15
+# Set to range = 15
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
@@ -361,10 +348,10 @@ ordenaR::order_circle(data = data_ordenar,
                       range = 15)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-3.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
 ``` r
-# Set to width = 20
+# Set to range = 20
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
@@ -372,7 +359,7 @@ ordenaR::order_circle(data = data_ordenar,
                       range = 20)
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-23-4.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-12-4.png)<!-- -->
 
 # References
 

@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="inst/ordenaR.png" width="250">
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
 
 # Download and load package
 
@@ -185,21 +185,21 @@ ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
                       species = 4:8)
 
-# Set to width = 5
+# Set to range = 5
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
                       species = 4:8,
                       range = 5)
 
-# Set to width = 15
+# Set to range = 15
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
                       species = 4:8,
                       range = 15)
 
-# Set to width = 20
+# Set to range = 20
 
 ordenaR::order_circle(data = data_ordenar,
                       gradient = "gradient_2",
