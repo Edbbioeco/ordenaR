@@ -5,11 +5,11 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="inst/ordenaR.png" width="250">
 
 # Download and load package
 
@@ -83,7 +83,7 @@ $$
 
 - $E_i$ = value to gradient $E$ to row $i$.
 
-Now, lets to analyse our data to a direct gradient.
+Now, let's to analyse our data to a direct gradient. We informe our gradient column (`gradient` argument), a column named by `gradient_1`, and species abundance data (`species` argument), a column set ranging from 4th to 8th column in our data frame.
 
 ```{r}
 ordenaR::order_species(data = data_ordenar,
@@ -95,13 +95,116 @@ ordenaR::order_species(data = data_ordenar,
                        species = 4:8)
 ```
 
-And now to a indirect gradient.
+And now to a indirect gradient, only informing `direct = FALSE`.
 
 ```{r}
 ordenaR::order_species(data = data_ordenar,
                        gradient = "sample_unit",
                        species = 4:8,
                        direct = FALSE)
+```
+
+# Ploting by bar plots
+
+The main reason to ordering species is to know how to best visualize species abundance along a gradient. It remains the fact there is not a intrinsec reason to alocate a x-species abundance firts to a y-species abundance. That way, any species can be in any position in a plot. That best species postion configuration is setted by species rank, previously calculated. 
+
+Now, we build a barplot to a direct gradient, similar to `ordenaR::order_species()` function.
+
+```{r, warning = FALSE}
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "gradient_1",
+                   species = 4:8)
+```
+
+Notice the species are not ordered by its numbers, and that position configuration maximize species abundance ordering along the gradient. Now, let's to build a barplot also, but to a indirect grtadient.
+
+```{r, warning = FALSE}
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "sample_unit",
+                   species = 4:8,
+                   direct = FALSE)
+```
+
+Notice not only species are ordered, but sample units too. Moreover, we can set bar width.
+
+```{r, warning=FALSE}
+# Original 
+
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "gradient_2",
+                   species = 4:8,
+                   width = 0.1)
+
+# Set to width = 0.1
+
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "gradient_2",
+                   species = 4:8,
+                   width = 0.5)
+
+# Set to width = 0.5
+
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "gradient_2",
+                   species = 4:8,
+                   width = 1)
+
+# Set to width = 1.5
+
+ordenaR::order_bar(data = data_ordenar,
+                   gradient = "gradient_2",
+                   species = 4:8,
+                   width = 1.5)
+```
+
+# Ploting by circle plots
+
+We also can build those plots, but using circles instead bars. Instead bar hight, use use circle diameter to understando species abundance values. Similar to `ordenaR::order_bar()` function, we use `ordenaR::order_circle()` function.
+
+```{r, warning=FALSE}
+ordenaR::order_circle(data = data_ordenar, 
+                      gradient = "gradient_1",
+                      species = 4:8)
+```
+
+And now to a indirect gradient.
+
+```{r, warning=FALSE}
+ordenaR::order_circle(data = data_ordenar, 
+                      gradient = "sample_unit",
+                      species = 4:8,
+                      direct = FALSE)
+```
+
+Similar to bar width, we can set circle diameter differences range.
+
+```{r, warning=FALSE}
+# Original 
+
+ordenaR::order_circle(data = data_ordenar,
+                      gradient = "gradient_2",
+                      species = 4:8)
+
+# Set to width = 5
+
+ordenaR::order_circle(data = data_ordenar,
+                      gradient = "gradient_2",
+                      species = 4:8,
+                      range = 5)
+
+# Set to width = 15
+
+ordenaR::order_circle(data = data_ordenar,
+                      gradient = "gradient_2",
+                      species = 4:8,
+                      range = 15)
+
+# Set to width = 20
+
+ordenaR::order_circle(data = data_ordenar,
+                      gradient = "gradient_2",
+                      species = 4:8,
+                      range = 20)
 ```
 
 # References
