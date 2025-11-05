@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person(
       "Edson Nilton de Moura Silva-Júnior",
-      email = "edsonbbbiologia@gmail.com",
+      email = "edsonbbiologia@gmail.com",
       role = c("aut", "cre"),
       comment = c(ORCID = "0009-0003-9116-2020",
                   GitHub = "Edbbioeco")
