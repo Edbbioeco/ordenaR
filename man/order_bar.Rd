@@ -54,7 +54,7 @@ data_ordenar
 # Ploting to a direct gradient
 
 ordenaR::order_bar(data = data_ordenar,
-                       gradient = "grandient_1",
+                       gradient = "gradient_1",
                        species = 4:8)
 
 # Calculating to a indirect gradient

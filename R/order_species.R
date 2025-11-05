@@ -43,7 +43,7 @@
 #' # Calculing to a direct gradient
 #'
 #' ordenaR::order_species(data = data_ordenar,
-#'                        gradient = "grandient_1",
+#'                        gradient = "gradient_1",
 #'                        species = 4:8)
 #'
 #' # Calculating to a indirect gradient
