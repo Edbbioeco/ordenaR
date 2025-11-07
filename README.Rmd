@@ -9,7 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
+# [ordenaR](https://github.com/Edbbioeco/ordenaR)<img src="ordenaR.png" align = "right" width="150">
+
+> Ordering species abundance by gradients
 
 # Download and load package
 
