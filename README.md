@@ -12,6 +12,14 @@ remotes::install_github("Edbbioeco/ordenaR")
 library(ordenaR)
 ```
 
+or simply:
+
+``` r
+install.packages("ordenaR")
+
+library(ordenaR)
+```
+
 # Package funcionality
 
 This package works to better understand species ordering by gradients,
@@ -157,7 +165,7 @@ and calcule them.
 
 ``` math
 
-K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_1 \right)}{\sum_{i = 1} P_i}
+K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_i \right)}{\sum_{i = 1} P_i}
 ```
 
 - $`P_i`$ = abundancie for species $`P`$ to row $`i`$;
@@ -384,4 +392,3 @@ ordenaR::order_circle(data = data_ordenar,
   ecological data with multivariate analyses. EDUA: Editora da
   Universidade Federal do Amazonas. Cap
   2](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)
-
