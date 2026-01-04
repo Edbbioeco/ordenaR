@@ -8,7 +8,7 @@ gert::git_add(list.files(pattern = "settando")) |> as.data.frame()
 
 # Commitando ----
 
-gert::git_commit("Script o set github repository")
+gert::git_commit("Script to set github repository")
 
 # Pushando ----
 
