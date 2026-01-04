@@ -1,0 +1,16 @@
+Version: 0.1.0
+Date: 2025-11-05 15:15:37 UTC
+SHA: fatal: ambiguous argument 'HEAD': unknown revision or path
+       not in the working tree.
+
+Version: 0.1.0
+Date: 2025-11-05 15:15:37 UTC
+SHA: Use '--' to separate paths from revisions, like this:
+
+Version: 0.1.0
+Date: 2025-11-05 15:15:37 UTC
+SHA: 'git <command> [<revision>...] -- [<file>...]'
+
+Version: 0.1.0
+Date: 2025-11-05 15:15:37 UTC
+SHA: HEAD

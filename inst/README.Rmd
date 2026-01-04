@@ -1,0 +1,111 @@
+---
+title: "ordenaR"
+author: "Edson Silva-Júnior"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Ordering species abundance by gradients by {[ordenaR](https://github.com/Edbbioeco/ordenaR)} <img src="ordenaR.png" width="250">
+
+# Download and load package
+
+```{r, eval = FALSE}
+library(remotes)
+
+remotes::install_github("Edbbioeco/ordenaR")
+
+library(ordenaR)
+```
+
+or simply:
+
+```{r, eval = FALSE}
+install.packages("ordenaR")
+
+library(ordenaR)
+```
+
+# Package funcionality
+
+This package works to better understand species ordering by gradients, and how gradients affect communities composition structure ([Hill, 1973](https://www.jstor.org/stable/2258931)). {ordenaR} package can analyse species abundance under direct and indirect gradients ([Magnusson & Bacchario, 2021](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)):
+
+- Direct gradients: numeric values gradients, such as temperature, humidity, altitude, and such else numeric variables;
+
+- Indirect gradients, categorical values gradients, such as sample units, vegetation structure, location types, and such else categorical variables.
+
+That package aload to use four functions:
+
+- data_ordenar: input data for exemples;
+
+- order_bar: ordering species by barplots
+
+- order_circles: ordering species by circlesplots
+
+- order_species: ordering species and ranking them into a dataframe.
+
+# Input data
+
+Toour exemples, we use ordenaR package data. First, lets load package and next our data.
+
+```{r}
+data("data_ordenar", package = "ordenaR")
+
+data_ordenar
+```
+
+Next, lets get a summary about our data variables.
+
+```{r}
+library(dplyr)
+
+data_ordenar |> dplyr::glimpse()
+```
+
+To our analysis, we use dataframe/tibble class objetos, containg:
+
+- A column contain direct gradient (numeric values) or indirect gradient (categorical values). Pay attention whether your indirect gradient are contained on row names (i.e. sample units). If it is true, turn it into a columns, such using tibble::rownames_to_column() function, previously;
+
+- A set of Columns containing species abundance data. Pay attention such species abundance data are conttained by a single column.
+
+# Get species rank
+
+To best ordering species under a gradient, we relocate them in a plot, to better understand how gradients affets species abundance. This is based on Hill ([1973](https://www.jstor.org/stable/2258931)), calculating reciprocal average, where every species get a rank, and we relocate the species based on this rank. For indirect gradients, we assumes a theorical gradient (i.e. 1, 2. 3, 4,..., n~bservation~) and calcule them.
+
+$$
+K_{PE} = \frac{\sum_{i = 1} \left(P_i * E_1 \right)}{\sum_{i = 1} P_i}
+$$
+
+- $P_i$ = abundancie for species $P$ to row $i$;
+
+- $E_i$ = value to gradient $E$ to row $i$.
+
+Now, lets to analyse our data to a direct gradient.
+
+```{r}
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_1",
+                       species = 4:8)
+
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "gradient_2",
+                       species = 4:8)
+```
+
+And now to a indirect gradient.
+
+```{r}
+ordenaR::order_species(data = data_ordenar,
+                       gradient = "sample_unit",
+                       species = 4:8,
+                       direct = FALSE)
+```
+
+# References
+
+- [Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of ordination. Journal of Ecology, 61:237-249](https://www.jstor.org/stable/2258931)}
+
+- [Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in ecological data with multivariate analyses. EDUA: Editora da Universidade Federal do Amazonas. Cap 2](https://www.researchgate.net/publication/362367115_Exploring_patterns_in_ecological_data_with_multivariate_analyses)
