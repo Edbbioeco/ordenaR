@@ -1,19 +1,19 @@
-# Pacote ----
+# Packages -----
 
-library(gert)
+library(devtools)
 
-# Selecionando o arquivo ----
+# Documentação ----
 
-gert::git_add(list.files(pattern = "")) |> as.data.frame()
+devtools::document()
 
-# Commitando ----
+# Checando o estado do pacote para encontrar conflitos ----
 
-gert::git_commit("ordenaR package")
+devtools::check(manual = TRUE, cran = TRUE)
 
-# Pushando ----
+# Finalizando checagens ----
 
-gert::git_push(remote = "origin", force = TRUE)
+devtools::release()
 
-# Pullando ----
+# Criando o pacote -----
 
-gert::git_pull()
+devtools::build(path = getwd())
