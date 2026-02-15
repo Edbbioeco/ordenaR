@@ -6,19 +6,21 @@ library(usethis)
 
 usethis::use_git()
 
-# Configure o usuario e email ----
+# Configurando o usuario e email ----
 
 usethis::use_git_config(user.name = "Edbbioeco",
                         user.email = "edsonbbiologia@gmail.com")
 
-# Settando o repositório ----
+# Projeto ----
 
 usethis::proj_get()
+
+# Settando o repositório ----
 
 usethis::use_git_remote(name = "origin",
                         url = "https://github.com/Edbbioeco/ordenaR.git",
                         overwrite = TRUE)
 
-# Renomear o branch do master para main ----
+# Criando o branch main ----
 
-usethis::git_default_branch_rename(from = "master", to = "main")
+usethis::git_default_branch_configure()
