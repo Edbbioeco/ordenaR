@@ -95,6 +95,23 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       dplyr::summarise(`Reciprocal average` = sum(data[[gradient]] * abundance) / sum(abundance),
                        .by = specie) |>
       dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie)) |>
       dplyr::pull(specie) |>
       unique()
 
@@ -105,7 +122,24 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
-      dplyr::mutate(specie = specie |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie),
+                    specie = specie |>
                       forcats::fct_relevel(ordem_especies)) |>
       ggplot2::ggplot(ggplot2::aes(x_axis, "x",
                                    size = ifelse(abundance == 0,
@@ -132,11 +166,11 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                      axis.line.y = ggplot2::element_line(color = "black",
                                                          linewidth = 1),
                      strip.background = ggplot2::element_blank(),
-                     strip.text.y.right = ggplot2::element_text(angle = 0,
-                                                                size = 12,
-                                                                color = "black",
-                                                                hjust = 0,
-                                                                face = "bold.italic"),
+                     strip.text.y.right = ggtext::element_markdown(angle = 0,
+                                                                   size = 12,
+                                                                   color = "black",
+                                                                   hjust = 0,
+                                                                   face = "bold"),
                      legend.position = "none",
                      legend.text = ggplot2::element_text(color = "black",
                                                          size = 12),
@@ -153,6 +187,23 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       dplyr::summarise(`Reciprocal average` = sum(gradientn * abundance) / sum(abundance),
                        .by = specie) |>
       dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie)) |>
       dplyr::pull(specie) |>
       unique()
 
@@ -163,12 +214,46 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                           values_to = "abundance") |>
       dplyr::summarise(`Reciprocal average` = sum(gradientn * abundance) / sum(abundance),
                        .by = specie) |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie)) |>
       dplyr::arrange(`Reciprocal average` |> dplyr::desc())
 
     ordem_amostras <- data |>
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie)) |>
       dplyr::left_join(species_order,
                        by = "specie") |>
       dplyr::summarise(`Reciprocal average` = sum(`Reciprocal average` * abundance) / sum(abundance),
@@ -183,7 +268,24 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
-      dplyr::mutate(specie = specie |>
+      dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
+                                            specie |>
+                                              stringr::str_replace_all(c(" aff " = "</i> aff. <i>",
+                                                                         " aff. " = "</i> aff. <i>",
+                                                                         " gr " = "</i> gr. <i>",
+                                                                         " gr. " = "</i> gr. <i>",
+                                                                         " cf " = "</i> cf. <i>",
+                                                                         " cf. " = "</i> cf. <i>")),
+                                            specie),
+                    specie = dplyr::if_else(specie |> stringr::str_detect("sp|sp."),
+                                            specie |>
+                                              stringr::str_replace_all(c("sp</i>" = "</i>sp",
+                                                                         "sp </i>" = "</i>sp",
+                                                                         "sp.</i>" = "</i>sp.",
+                                                                         "sp. </i>" = "</i>sp.")),
+                                            specie),
+                    specie = specie |>
                       forcats::fct_relevel(ordem_especies),
                     x_axis = x_axis |>
                       forcats::fct_relevel(ordem_amostras)) |>
@@ -213,11 +315,11 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                      axis.line.y = ggplot2::element_line(color = "black",
                                                          linewidth = 1),
                      strip.background = ggplot2::element_blank(),
-                     strip.text.y.right = ggplot2::element_text(angle = 0,
-                                                                size = 12,
-                                                                color = "black",
-                                                                hjust = 0,
-                                                                face = "bold.italic"),
+                     strip.text.y.right = ggtext::element_markdown(angle = 0,
+                                                                   size = 12,
+                                                                   color = "black",
+                                                                   hjust = 0,
+                                                                   face = "bold"),
                      legend.position = "none",
                      legend.text = ggplot2::element_text(color = "black",
                                                          size = 12),
