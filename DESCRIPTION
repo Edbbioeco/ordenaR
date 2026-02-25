@@ -27,8 +27,7 @@ Depends:
     readr,
     stringr,
     tibble,
-    ggtext,
-    tidytext
+    ggtext
 Imports:
     dplyr,
     tidyr,
@@ -39,5 +38,4 @@ Imports:
     readr,
     stringr,
     tibble,
-    ggtext,
-    tidytext
+    ggtext
