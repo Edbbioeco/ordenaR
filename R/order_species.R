@@ -54,7 +54,9 @@
 #'
 #' # Loop for multiple gradients
 #'
-#' mult_gra <- function(gradient){
+#' gradient <- paste0("gradient_", 1:2)
+#'
+#' purrr::map(gradient, \(gradient){
 #'
 #'   paste0("load to gradient: ", gradient) |>
 #'     message()
@@ -65,11 +67,8 @@
 #'
 #'    return(grad)
 #'
-#' }
-#'
-#' gradient <- paste0("gradient_", 1:2)
-#'
-#' purrr::map(gradient, mult_gra)
+#'    },
+#'    .progress = TRUE)
 #'
 
 #' @export

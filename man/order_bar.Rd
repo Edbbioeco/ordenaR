@@ -54,19 +54,21 @@ data_ordenar
 # Ploting to a direct gradient
 
 ordenaR::order_bar(data = data_ordenar,
-                       gradient = "gradient_1",
-                       species = 4:8)
+                   gradient = "gradient_1",
+                   species = 4:8)
 
 # Calculating to a indirect gradient
 
 ordenaR::order_bar(data = data_ordenar,
-                       gradient = "sample_unit",
-                       species = 4:8,
-                       direct = FALSE)
+                   gradient = "sample_unit",
+                   species = 4:8,
+                   direct = FALSE)
 
 # Loop for multiple gradients
 
-mult_gra <- function(gradient){
+gradient <- paste0("gradient_", 1:2)
+
+purrr::map(gradient, \(gradient){
 
   paste0("Plot to gradient: ", gradient) |>
     message()
@@ -77,11 +79,8 @@ mult_gra <- function(gradient){
 
    return(grad)
 
-}
-
-gradient <- paste0("gradient_", 1:2)
-
-purrr::map(gradient, mult_gra)
+   },
+   .progress = TRUE)
 
 }
 \references{
