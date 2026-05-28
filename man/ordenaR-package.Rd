@@ -6,6 +6,8 @@
 \alias{ordenaR-package}
 \title{ordenaR: Ordening ang visualizing species composition under a gradient}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 functions to ordening species order in function to a gradient, such as environmental or sample unit ggradients, to best visualization how gradients affects species abundance.
 }
 \author{
