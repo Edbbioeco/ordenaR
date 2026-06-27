@@ -152,10 +152,8 @@ order_bar <- function(data, gradient, species, direct = TRUE, width = NULL) {
       ggplot2::theme_classic() +
       ggplot2::theme(axis.text.y = ggplot2::element_blank(),
                      axis.text.x = ggplot2::element_text(color = "black",
-                                                         size = 15,
                                                          hjust = 0),
-                     axis.title = ggplot2::element_text(color = "black",
-                                                        size = 15),
+                     axis.title = ggplot2::element_text(color = "black"),
                      panel.spacing = ggplot2::unit(0, "points"),
                      axis.ticks.y = ggplot2::element_blank(),
                      axis.line.x = ggplot2::element_blank(),
@@ -163,15 +161,12 @@ order_bar <- function(data, gradient, species, direct = TRUE, width = NULL) {
                                                          linewidth = 1),
                      strip.background = ggplot2::element_blank(),
                      strip.text.y.right = ggtext::element_markdown(angle = 0,
-                                                                   size = 12,
                                                                    color = "black",
                                                                    hjust = 0,
                                                                    face = "bold"),
                      legend.position = "bottom",
-                     legend.text = ggplot2::element_text(color = "black",
-                                                         size = 12),
-                     legend.title = ggplot2::element_text(color = "black",
-                                                          size = 15))
+                     legend.text = ggplot2::element_text(color = "black"),
+                     legend.title = ggplot2::element_text(color = "black"))
 
   } else if(direct == FALSE){
 
@@ -298,11 +293,9 @@ order_bar <- function(data, gradient, species, direct = TRUE, width = NULL) {
       ggplot2::theme_classic() +
       ggplot2::theme(axis.text.y = ggplot2::element_blank(),
                      axis.text.x = ggplot2::element_text(color = "black",
-                                                         size = 15,
                                                          hjust = 1,
                                                          angle = 45),
-                     axis.title = ggplot2::element_text(color = "black",
-                                                        size = 15),
+                     axis.title = ggplot2::element_text(color = "black"),
                      panel.spacing = ggplot2::unit(0, "points"),
                      axis.ticks.y = ggplot2::element_blank(),
                      axis.line.x = ggplot2::element_blank(),
@@ -310,15 +303,12 @@ order_bar <- function(data, gradient, species, direct = TRUE, width = NULL) {
                                                          linewidth = 1),
                      strip.background = ggplot2::element_blank(),
                      strip.text.y.right = ggtext::element_markdown(angle = 0,
-                                                                   size = 12,
                                                                    color = "black",
                                                                    hjust = 0,
                                                                    face = "bold"),
                      legend.position = "bottom",
-                     legend.text = ggplot2::element_text(color = "black",
-                                                         size = 12),
-                     legend.title = ggplot2::element_text(color = "black",
-                                                          size = 15))
+                     legend.text = ggplot2::element_text(color = "black"),
+                     legend.title = ggplot2::element_text(color = "black"))
 
     }
 

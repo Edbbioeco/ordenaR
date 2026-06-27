@@ -9,12 +9,12 @@ gert::git_status() |>
 
 # Adicionando arquivo ----
 
-gert::git_add(list.files(pattern = "comandos_git.R")) |>
+gert::git_add(list.files(pattern = "DESCRIPTION")) |>
   as.data.frame()
 
 # Commitando ----
 
-gert::git_commit("Script to git Commands")
+gert::git_commit("Package description")
 
 # Pushando ----
 
@@ -24,7 +24,7 @@ gert::git_push(remote = "origin", force = TRUE)
 
 gert::git_pull(remote = "origin")
 
-# resetando ----
+# Resetando ----
 
 gert::git_reset_mixed()
 
