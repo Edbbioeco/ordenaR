@@ -53,3 +53,7 @@ devtools::check_win_devel(email = "edsonbbiologia@gmail.com")
 devtools::document()
 
 devtools::build()
+
+# Comentários ----
+
+usethis::use_cran_comments()
