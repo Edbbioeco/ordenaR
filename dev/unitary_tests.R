@@ -50,4 +50,6 @@ devtools::check_win_devel(email = "edsonbbiologia@gmail.com")
 
 # Buildar ----
 
+devtools::document()
+
 devtools::build()
