@@ -228,7 +228,7 @@ ordenaR::order_bar(data = data_ordenar,
 
 - [Hill, M. O. (1973). Reciprocal averaging: an eigenvector method of
   ordination. Journal of Ecology,
-  61:237-249](https://www.jstor.org/stable/2258931)}
+  61:237-249](https://www.jstor.org/stable/2258931)
 
 - [Magnusson, W. E, Bacchario, F. B. (2021). Exploring patterns in
   ecological data with multivariate analyses. EDUA: Editora da
