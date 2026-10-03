@@ -1,6 +1,6 @@
 Package: ordenaR
 Type: Package
-Title: Ordening ang visualizing species composition under a gradient
+Title: Ordering and visualizing species composition under a gradient
 Version: 1.0.0
 Authors@R: c(
     person(
@@ -11,7 +11,7 @@ Authors@R: c(
                   GitHub = "Edbbioeco")
     )
   )
-Description: functions to ordening species order in function to a gradient, such as environmental or sample unit ggradients, to best visualization how gradients affects species abundance.
+Description: functions to ordening species order in function to a gradient, such as environmental or sample unit gradients, to best visualization how gradients affects species abundance.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
