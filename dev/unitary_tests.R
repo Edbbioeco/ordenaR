@@ -24,6 +24,10 @@ usethis::use_logo("ordenaR.png")
 
 file.remove("ordenaR.png")
 
+# Declarar rlang como dependência ----
+
+usethis::use_package("rlang")
+
 # Documentação ----
 
 devtools::document()
