@@ -2,6 +2,8 @@
 
 library(tidyverse)
 
+library(usethis)
+
 library(devtools)
 
 # Fazer a ignoração dos arquivos no buide ----
