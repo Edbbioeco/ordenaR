@@ -11,4 +11,11 @@
 #' }
 #'
 #' @source Data artificially build.
-"data_ordenar"
+data_ordenar <- function(){
+
+  arquivos <- system.file("extdata", package = "ordenaR") |>
+    list.files(full.names = TRUE)
+
+  arquivos
+
+}

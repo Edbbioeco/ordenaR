@@ -93,7 +93,7 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                           values_to = "abundance") |>
       dplyr::summarise(`Reciprocal average` = sum(data[[gradient]] * abundance) / sum(abundance),
                        .by = specie) |>
-      dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
                     specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
                                             specie |>
@@ -180,7 +180,7 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                           values_to = "abundance") |>
       dplyr::summarise(`Reciprocal average` = sum(gradientn * abundance) / sum(abundance),
                        .by = specie) |>
-      dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
                     specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
                                             specie |>
@@ -225,7 +225,7 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                                                                          "sp.</i>" = "</i>sp.",
                                                                          "sp. </i>" = "</i>sp.")),
                                             specie)) |>
-      dplyr::arrange(`Reciprocal average` |> dplyr::desc())
+      dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc())
 
     ordem_amostras <- data |>
       tidyr::pivot_longer(cols = species,
@@ -250,9 +250,9 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
                                             specie)) |>
       dplyr::left_join(species_order,
                        by = "specie") |>
-      dplyr::summarise(`Reciprocal average` = sum(`Reciprocal average` * abundance) / sum(abundance),
+      dplyr::summarise(`Reciprocal average` = sum(.data$`Reciprocal average` * abundance) / sum(abundance),
                        .by = data[gradient] |> names()) |>
-      dplyr::arrange(`Reciprocal average`) |>
+      dplyr::arrange(.data$`Reciprocal average`) |>
       dplyr::pull(data[gradient] |> names())
 
     x_axis <- data[gradient] |> names()

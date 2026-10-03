@@ -83,7 +83,7 @@ order_species <- function(data, gradient, species, direct = TRUE){
                           values_to = "abundance") |>
       dplyr::summarise(`Reciprocal average` = sum(data[[gradient]] * abundance) / sum(abundance),
                        .by = specie) |>
-      dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(Rank = 1:length(species))
 
   } else if(direct == FALSE){
@@ -95,7 +95,7 @@ order_species <- function(data, gradient, species, direct = TRUE){
                           values_to = "abundance") |>
       dplyr::summarise(`Reciprocal average` = sum(gradient * abundance) / sum(abundance),
                        .by = specie) |>
-      dplyr::arrange(`Reciprocal average` |> dplyr::desc()) |>
+      dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(Rank = 1:length(species))
 
   }
