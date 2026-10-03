@@ -8,8 +8,8 @@ library(devtools)
 
 # Fazer a ignoração dos arquivos no buide ----
 
-purrr::map(
-  list.files(pattern = ".Rmd$|.R$|^README|^cran-comments",
+purrr::walk(
+  list.files(pattern = "\\.Rmd$|\\.R$|^README|^cran-comments",
              full.names = TRUE),
   \(arquivo){
 
