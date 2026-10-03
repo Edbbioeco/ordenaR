@@ -43,3 +43,7 @@ devtools::release()
 # Criando o pacote -----
 
 devtools::build(path = getwd())
+
+# Checar win-builder ----
+
+devtools::check_win_devel(email = "edsonbbiologia@gmail.com")
