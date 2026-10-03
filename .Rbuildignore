@@ -4,3 +4,4 @@
 ^CRAN-SUBMISSION$
 ^\.positai$
 ^\.claude$
+^dev$
