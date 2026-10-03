@@ -13,7 +13,7 @@ purrr::map(
              full.names = TRUE),
   \(arquivo){
 
-    usethis::use_build_ignore
+    usethis::use_build_ignore(arquivo)
 
     },
   .progress = TRUE)
