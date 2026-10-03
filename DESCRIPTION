@@ -22,12 +22,11 @@ Depends:
 Imports:
     dplyr,
     tidyr,
-    magrittr,
     forcats,
     ggplot2,
-    purrr,
-    readr,
     stringr,
-    tibble,
-    ggtext
+    ggtext,
+    rlang
+Suggests:
+    purrr
 Config/roxygen2/version: 8.1.0
