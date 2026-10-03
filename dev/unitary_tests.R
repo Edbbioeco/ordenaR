@@ -9,8 +9,8 @@ library(devtools)
 # Fazer a ignoração dos arquivos no buide ----
 
 purrr::walk(
-  list.files(path = "./dev",
-             full.names = TRUE),
+  c(list.files(path = "./dev"),
+    list.files(pattern = "^README|\\.Rproj$|\\.png$|^dev$|^LICENSE\\.md$|^CRAN-SUBMISSION$")),
   \(arquivo){
 
     usethis::use_build_ignore(arquivo)
