@@ -178,7 +178,7 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
-      dplyr::summarise(`Reciprocal average` = sum(.data$gradientn * .data$abundance) / sum(abundance),
+      dplyr::summarise(`Reciprocal average` = sum(.data$gradientn * .data$abundance) / sum(.data$abundance),
                        .by = specie) |>
       dplyr::arrange(.data$`Reciprocal average` |> dplyr::desc()) |>
       dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
@@ -206,7 +206,7 @@ order_circle <- function(data, gradient, species, direct = TRUE, range = 10) {
       tidyr::pivot_longer(cols = species,
                           names_to = "specie",
                           values_to = "abundance") |>
-      dplyr::summarise(`Reciprocal average` = sum(.data$gradientn * .data$abundance) / sum(abundance),
+      dplyr::summarise(`Reciprocal average` = sum(.data$gradientn * .data$abundance) / sum(.data$abundance),
                        .by = specie) |>
       dplyr::mutate(specie = paste0("<i>", specie, "</i>"),
                     specie = dplyr::if_else(specie |> stringr::str_detect("aff.|gr.|cf.|aff|gr|cf"),
