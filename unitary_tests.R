@@ -1,8 +1,8 @@
 # Packages -----
 
-library(devtools)
-
 library(tidyverse)
+
+library(devtools)
 
 # Fazer a ignoração dos arquivos no buide ----
 
