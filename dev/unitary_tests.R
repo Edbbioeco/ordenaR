@@ -47,3 +47,7 @@ devtools::build(path = getwd())
 # Checar win-builder ----
 
 devtools::check_win_devel(email = "edsonbbiologia@gmail.com")
+
+# Buildar ----
+
+devtools::build()
