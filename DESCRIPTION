@@ -19,16 +19,6 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 4.1),
-    dplyr,
-    tidyr,
-    magrittr,
-    forcats,
-    ggplot2,
-    purrr,
-    readr,
-    stringr,
-    tibble,
-    ggtext
 Imports:
     dplyr,
     tidyr,
@@ -40,4 +30,4 @@ Imports:
     stringr,
     tibble,
     ggtext
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0
