@@ -48,12 +48,13 @@ devtools::build(path = getwd())
 
 devtools::check_win_devel(email = "edsonbbiologia@gmail.com")
 
+# Comentários ----
+
+usethis::use_cran_comments()
+
 # Buildar ----
 
 devtools::document()
 
 devtools::build()
 
-# Comentários ----
-
-usethis::use_cran_comments()
