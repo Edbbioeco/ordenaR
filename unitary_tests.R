@@ -2,6 +2,8 @@
 
 library(devtools)
 
+library(tidyverse)
+
 # Documentação ----
 
 devtools::document()
