@@ -1,6 +1,6 @@
 Package: ordenaR
 Type: Package
-Title: Ordering and visualizing species composition under a gradient
+Title: Ordering and Visualizing Species Composition under a Gradient
 Version: 1.0.0
 Authors@R: c(
     person(
