@@ -4,6 +4,18 @@ library(devtools)
 
 library(tidyverse)
 
+# Fazer a ignoração dos arquivos no buide ----
+
+purrr::map(
+  list.files(pattern = ".Rmd$|.R$|^README|^cran-comments",
+             full.names = TRUE),
+  \(arquivo){
+
+    usethis::use_build_ignore
+
+    },
+  .progress = TRUE)
+
 # Documentação ----
 
 devtools::document()
