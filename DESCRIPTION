@@ -11,7 +11,9 @@ Authors@R: c(
                   GitHub = "Edbbioeco")
     )
   )
-Description: functions to ordening species order in function to a gradient, such as environmental or sample unit gradients, to best visualization how gradients affects species abundance.
+Description: Provides tools for ordering and visualizing species 
+    composition data along ecological gradients, including methods 
+    for exploratory data analysis and graphical representation.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
