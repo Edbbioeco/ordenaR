@@ -18,6 +18,12 @@ purrr::walk(
     },
   .progress = TRUE)
 
+# Mover a logo para o local correto ----
+
+usethis::use_logo("ordenaR.png")
+
+file.remove("ordenaR.png")
+
 # Documentação ----
 
 devtools::document()
